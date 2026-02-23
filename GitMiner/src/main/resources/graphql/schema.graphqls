@@ -1,0 +1,120 @@
+type User {
+    id: ID!
+    username: String!
+    name: String
+    avatarUrl: String
+    webUrl: String
+}
+
+input UserInput {
+    id: ID!
+    username: String!
+    name: String
+    avatarUrl: String
+    webUrl: String
+}
+
+type Comment {
+    id: ID!
+    body: String!
+    createdAt: String!
+    updatedAt: String
+    author: User!
+}
+
+input CommentInput {
+    id: ID!
+    body: String!
+    createdAt: String!
+    updatedAt: String
+    authorId: ID!
+    issueId: ID!
+}
+
+type Issue {
+    id: ID!
+    title: String
+    description: String
+    state: String
+    createdAt: String
+    updatedAt: String
+    closedAt: String
+    labels: [String]
+    votes: Int
+    author: User
+    assignee: User
+    comments: [Comment]
+}
+
+input IssueInput {
+    id: ID!
+    title: String
+    description: String
+    state: String
+    createdAt: String
+    updatedAt: String
+    closedAt: String
+    labels: [String]
+    votes: Int
+    authorId: ID
+    assigneeId: ID
+    projectId: ID!
+}
+
+type Commit {
+    id: ID!
+    title: String
+    message: String
+    authorName: String!
+    authorEmail: String
+    authoredDate: String!
+    webUrl: String!
+}
+
+input CommitInput {
+    id: ID!
+    title: String
+    message: String
+    authorName: String!
+    authorEmail: String
+    authoredDate: String!
+    webUrl: String!
+    projectId: ID!
+}
+
+
+
+type Project {
+    id: ID!
+    name: String!
+    webUrl: String!
+    commits: [Commit]
+    issues: [Issue]
+}
+
+input ProjectInput {
+    id: ID!
+    name: String!
+    webUrl: String!
+}
+
+type Query {
+    projects: [Project]
+    project(id: ID!): Project
+    commits: [Commit]
+    commit(id: ID!): Commit
+    issues: [Issue]
+    issue(id: ID!): Issue
+    comments: [Comment]
+    comment(id: ID!): Comment
+    users: [User]
+    user(id: ID!): User
+}
+
+type Mutation {
+    addProject(input: ProjectInput!): Project
+    addCommit(input: CommitInput!): Commit
+    addIssue(input: IssueInput!): Issue
+    addComment(input: CommentInput!): Comment
+    addUser(input: UserInput!): User
+}
