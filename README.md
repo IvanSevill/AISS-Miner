@@ -93,4 +93,4 @@ The ecosystem revolves around a unified domain model:
 This project was developed as part of the **Software Engineering (Ingeniería del Software)** curriculum. It demonstrates microservices communication, data transformation (ETL), and polyglot API design (REST + GraphQL).
 
 ---
-Developed with ❤️ by [ivans](https://github.com/ivans), [Dina Samatova](https://github.com/dinasamatova) and [@jfgm299](https://github.com/jfgm299)
+Developed with ❤️ by [ivans](https://github.com/ivans), [Dina Samatova](https://github.com/dlunaaa) and [@jfgm299](https://github.com/jfgm299)
